@@ -268,25 +268,23 @@ print("\27[34m"..[[
 >> Best Source in Telegram
 >> Features fast and powerful
 
- /$$$$$$$$        /$$                 /$$                
-|__  $$__/       | $$                | $$                
-   | $$  /$$$$$$$| $$$$$$$   /$$$$$$ | $$   /$$  /$$$$$$ 
+############Spark$$$$$$| $$$$$$$   /$$$$$$ | $$   /$$  /$$$$$$ 
    | $$ /$$_____/| $$__  $$ |____  $$| $$  /$$/ /$$__  $$
    | $$|  $$$$$$ | $$  \ $$  /$$$$$$$| $$$$$$/ | $$$$$$$$
    | $$ \____  $$| $$  | $$ /$$__  $$| $$_  $$ | $$_____/
    | $$ /$$$$$$$/| $$  | $$|  $$$$$$$| $$ \  $$|  $$$$$$$
    |__/|_______/ |__/  |__/ \_______/|__/  \__/ \_______/
                                                                                                                                                                          
->> CH > @TSHAKETEAM
+>> CH > @sparkTEAM
 >> CH > @ZX_XX 
 >> DEVELOPER > @TAHAJ20
 >> DEVELOPER > @VVWVV
 ]].."\27[m")
-sudos = dofile("sudo.lua")
-if Sudo then
+barons = dofile("baron.lua")
+if baron then
 https = require("ssl.https")
 URL = require("./File_Libs/url.lua")  
-https.request('https://api.telegram.org/bot'..token..'/sendMessage?chat_id='..Sudo..'&text='..URL.escape("⚡┇لقد توقف البوت بسبب انهاير الريدز افتح ترمنال وارسل \n`service redis start` ")..'&parse_mode=Markdown')
+https.request('https://api.telegram.org/bot'..token..'/sendMessage?chat_id='..baron..'&text='..URL.escape("⚡┇لقد توقف البوت بسبب انهاير الريدز افتح ترمنال وارسل \n`service redis start` ")..'&parse_mode=Markdown')
 end
 os.exit()
 --client.error('connection error: ' .. err) 
@@ -795,16 +793,14 @@ local function connect_tcp(socket, parameters)
 >> Best Source in Telegram
 >> Features fast and powerful
 
- /$$$$$$$$        /$$                 /$$                
-|__  $$__/       | $$                | $$                
-   | $$  /$$$$$$$| $$$$$$$   /$$$$$$ | $$   /$$  /$$$$$$ 
+############Spark$$$$$$| $$$$$$$   /$$$$$$ | $$   /$$  /$$$$$$ 
    | $$ /$$_____/| $$__  $$ |____  $$| $$  /$$/ /$$__  $$
    | $$|  $$$$$$ | $$  \ $$  /$$$$$$$| $$$$$$/ | $$$$$$$$
    | $$ \____  $$| $$  | $$ /$$__  $$| $$_  $$ | $$_____/
    | $$ /$$$$$$$/| $$  | $$|  $$$$$$$| $$ \  $$|  $$$$$$$
    |__/|_______/ |__/  |__/ \_______/|__/  \__/ \_______/
                                                                                                                                                                          
->> CH > @TSHAKETEAM
+>> CH > @sparkTEAM
 >> CH > @ZX_XX 
 >> DEVELOPER > @TAHAJ20
 >> DEVELOPER > @VVWVV
