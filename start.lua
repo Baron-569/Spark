@@ -3,20 +3,20 @@ https = require("ssl.https")
 http = require("socket.http")
 JSON = dofile("./File_Libs/JSON.lua")
 local database = dofile("./File_Libs/redis.lua").connect("127.0.0.1", 6379)
-Server_Tshake = io.popen("echo $SSH_CLIENT | awk '{ print $1}'"):read('*a')
-local AutoFiles_Tshake = function() 
-local Create_Info = function(Token,Sudo,UserName)  
-local Tshake_Info_Sudo = io.open("sudo.lua", 'w')
-Tshake_Info_Sudo:write([[
+Server_spark = io.popen("echo $SSH_CLIENT | awk '{ print $1}'"):read('*a')
+local AutoFiles_spark = function() 
+local Create_Info = function(Token,baron,UserName)  
+local spark_Info_baron = io.open("baron.lua", 'w')
+spark_Info_baron:write([[
 token = "]]..Token..[["
 
-Sudo = ]]..Sudo..[[  
+baron = ]]..baron..[[  
 
 UserName = "]]..UserName..[["
 ]])
-Tshake_Info_Sudo:close()
+spark_Info_baron:close()
 end  
-if not database:get(Server_Tshake.."Token_Tshake") then
+if not database:get(Server_spark.."Token_spark") then
 print("\27[1;34m»» Send Your Token Bot :\27[m")
 local token = io.read()
 if token ~= '' then
@@ -25,7 +25,7 @@ if res ~= 200 then
 io.write('\n\27[1;31m»» Sorry The Token is not Correct \n\27[0;39;49m')
 else
 io.write('\n\27[1;31m»» The Token Is Saved\n\27[0;39;49m')
-database:set(Server_Tshake.."Token_Tshake",token)
+database:set(Server_spark.."Token_spark",token)
 end 
 else
 io.write('\n\27[1;31mThe Tokem was not Saved\n\27[0;39;49m')
@@ -34,8 +34,8 @@ os.execute('lua start.lua')
 end
 ------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------
-if not database:get(Server_Tshake.."UserName_Tshake") then
-print("\27[1;34m\n»» Send Your UserName Sudo : \27[m")
+if not database:get(Server_spark.."UserName_spark") then
+print("\27[1;34m\n»» Send Your UserName baron : \27[m")
 local UserName = io.read():gsub('@','')
 if UserName ~= '' then
 local Get_Info = http.request("http://tshake.ml/info/?user="..UserName)
@@ -53,8 +53,8 @@ io.write('\n\27[1;31m»» Sorry The UserName Is Channel \n\27[0;39;49m')
 os.execute('lua start.lua')
 else
 io.write('\n\27[1;31m»» The UserNamr Is Saved\n\27[0;39;49m')
-database:set(Server_Tshake.."UserName_Tshake",Json.Info.Username)
-database:set(Server_Tshake.."Id_Tshake",Json.Info.Id)
+database:set(Server_spark.."UserName_spark",Json.Info.Username)
+database:set(Server_spark.."Id_spark",Json.Info.Id)
 end
 end
 else
@@ -62,47 +62,47 @@ io.write('\n\27[1;31mThe UserName was not Saved\n\27[0;39;49m')
 end 
 os.execute('lua start.lua')
 end
-local function Files_Tshake_Info()
-Create_Info(database:get(Server_Tshake.."Token_Tshake"),database:get(Server_Tshake.."Id_Tshake"),database:get(Server_Tshake.."UserName_Tshake"))   
-local RunTshake = io.open("Tshake", 'w')
-RunTshake:write([[
+local function Files_spark_Info()
+Create_Info(database:get(Server_spark.."Token_spark"),database:get(Server_spark.."Id_spark"),database:get(Server_spark.."UserName_spark"))   
+local Runspark = io.open("spark", 'w')
+Runspark:write([[
 #!/usr/bin/env bash
-cd $HOME/TshAkEx
-token="]]..database:get(Server_Tshake.."Token_Tshake")..[["
-rm -fr Tshake.lua
-wget "https://raw.githubusercontent.com/TEAMTshakeX/TshAkEx/master/Tshake.lua"
+cd $HOME/sparkx
+token="]]..database:get(Server_spark.."Token_spark")..[["
+rm -fr spark.lua
+wget "https://raw.githubusercontent.com/Baron-569/Spark/master/spark.lua"
 while(true) do
 rm -fr ../.telegram-cli
-./tg -s ./Tshake.lua -p PROFILE --bot=$token
+./tg -s ./spark.lua -p PROFILE --bot=$token
 done
 ]])
-RunTshake:close()
+Runspark:close()
 local RunTs = io.open("ts", 'w')
 RunTs:write([[
 #!/usr/bin/env bash
-cd $HOME/TshAkEx
+cd $HOME/sparkx
 while(true) do
 rm -fr ../.telegram-cli
-screen -S TshAkE -X kill
-screen -S TshAkE ./Tshake
+screen -S spark -X kill
+screen -S spark ./spark
 done
 ]])
 RunTs:close()
 end
-Files_Tshake_Info()
-database:del(Server_Tshake.."Token_Tshake");database:del(Server_Tshake.."Id_Tshake");database:del(Server_Tshake.."UserName_Tshake")
-sudos = dofile('sudo.lua')
+Files_spark_Info()
+database:del(Server_spark.."Token_spark");database:del(Server_spark.."Id_spark");database:del(Server_spark.."UserName_spark")
+barons = dofile('baron.lua')
 os.execute('./install.sh ins')
 end 
 local function Load_File()  
-local f = io.open("./sudo.lua", "r")  
+local f = io.open("./baron.lua", "r")  
 if not f then   
-AutoFiles_Tshake()  
+AutoFiles_spark()  
 var = true
 else   
 f:close()  
-database:del(Server_Tshake.."Token_Tshake");database:del(Server_Tshake.."Id_Tshake");database:del(Server_Tshake.."UserName_Tshake")
-sudos = dofile('sudo.lua')
+database:del(Server_spark.."Token_spark");database:del(Server_spark.."Id_spark");database:del(Server_spark.."UserName_spark")
+barons = dofile('baron.lua')
 os.execute('./install.sh ins')
 var = false
 end  
